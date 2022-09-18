@@ -162,7 +162,7 @@ class InputReport:
             raise ValueError(f'Length of data {len(data)} does not match size {size}')
         if size > 0x1D:
             raise ValueError(f'Size can not exceed {0x1D}')
-        print("SPI Read, From ",hex(offset),"TO ",hex(offset+size), " : ", data)
+        #print("SPI Read, From ",hex(offset),"TO ",hex(offset+size), " : ", data)
         self.reply_to_subcommand_id(0x10)
 
         # write offset to data
