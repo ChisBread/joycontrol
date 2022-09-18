@@ -155,14 +155,14 @@ class InputReport:
         self.data[offset + 3] = 0x02
         self.data[offset + 4: offset + 10] = mac
         self.data[offset + 10] = 0x01
-        self.data[offset + 11] = 0x01
+        self.data[offset + 11] = 0x02
 
     def sub_0x10_spi_flash_read(self, offset, size, data):
         if len(data) != size:
             raise ValueError(f'Length of data {len(data)} does not match size {size}')
         if size > 0x1D:
             raise ValueError(f'Size can not exceed {0x1D}')
-
+        print("SPI Read, From ",hex(offset),"TO ",hex(offset+size), " : ", data)
         self.reply_to_subcommand_id(0x10)
 
         # write offset to data
